@@ -4,17 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <!-- Don't forget to change the title and connect the CSS file -->
-  <title>Project Library</title>
+  <title>Rent a movie</title>
 </head>
 
 <body>
-  <h1>Project Library</h1>
+  <h1>FilmNest</h1>
+  <div class="filter" id="filter-button">
+    <p>Filter by genre
+      <button id="sci-fi">Sci-Fi</button>
+      <button id="horror">Horror</button>
+      <button id="comedy">Comedy</button>
+      <button id="romance">Romance</button>
+    </p>
+  </div>
 
-  <section>
-    <!-- Movie 1 -->
+  <div class="sort" id="filter-button">
+    <p> Sort by year
+      <button id="sort-new-to-old">Sort New to Old</button>
+      <button id="sort-old-to-new">Sort Old to New</button>
+
+    </p>
+  </div>
+
+
+
+  <section id="movies-section">
+    <!-- Movie Inception -->
     <article>
-      <img src="./movie-images/inception-movie.jpg" alt="Inception">
+      <img src="./movie-images/inception-movie.jpg" alt="Inception" />
       <div class="card-content">
         <h2>Inception</h2>
         <p><strong>Director:</strong> Christopher Nolan | <strong>Year:</strong> 2010</p>
@@ -23,9 +42,9 @@
       </div>
     </article>
 
-    <!-- Movie 2 -->
+    <!-- Movie Get Out -->
     <article>
-      <img src="./movie-images/to-kill-a-mockingbird.jpg" alt="Get Out">
+      <img src="./movie-images/get-out-movie.jpeg" alt="Get Out">
       <div class="card-content">
         <h2>Get Out</h2>
         <p><strong>Director:</strong> Jordan Peele | <strong>Year:</strong> 2017</p>
@@ -34,9 +53,9 @@
       </div>
     </article>
 
-    <!-- Movie 3 -->
+    <!-- Movie Back To Future -->
     <article>
-      <img src="./books-images/1984.jpg" alt="Back to the Future">
+      <img src="./movie-images/back-to-future.jpg" alt="Back to the Future">
       <div class="card-content">
         <h2>Back to the Future</h2>
         <p><strong>Director:</strong> Robert Zemeckis | <strong>Year:</strong> 1985</p>
@@ -45,9 +64,9 @@
       </div>
     </article>
 
-    <!-- Movie 4 -->
+    <!-- Movie The Exorcist -->
     <article>
-      <img src="./books-images/pride-and-prejudice.jpg" alt="The Exorcist">
+      <img src="./movie-images/the-exorcist.jpg" alt="The Exorcist">
       <div class="card-content">
         <h2>The Exorcist</h2>
         <p><strong>Director:</strong> William Friedkin | <strong>Year:</strong> 1973</p>
@@ -56,9 +75,9 @@
       </div>
     </article>
 
-    <!-- Movie 5 -->
+    <!-- Movie The Hangover -->
     <article>
-      <img src="./books-images/unknown.jpg" alt="The Hangover">
+      <img src="./movie-images/the-hangover.jpeg" alt="The Hangover">
       <div class="card-content">
         <h2>The Hangover</h2>
         <p><strong>Director:</strong> Todd Phillips | <strong>Year:</strong> 2009</p>
@@ -67,9 +86,9 @@
       </div>
     </article>
 
-    <!-- Movie 6 -->
+    <!-- Movie Matrix -->
     <article>
-      <img src="./books-images/the-hobbit.jpg" alt="The Matrix">
+      <img src="./movie-images/matrix.jpg" alt="The Matrix">
       <div class="card-content">
         <h2>The Matrix</h2>
         <p><strong>Directors:</strong> Lana Wachowski, Lilly Wachowski | <strong>Year:</strong> 1999</p>
@@ -81,7 +100,7 @@
 
     <!-- Movie 7 -->
     <article>
-      <img src="./books-images/harry-potter-and-the-sorcerer.jpg" alt="Shaun of the Dead">
+      <img src="./movie-images/shaun-of-the-dead.jpg" alt="Shaun of the Dead">
       <div class="card-content">
         <h2>Shaun of the Dead</h2>
         <p><strong>Director:</strong> Edgar Wright | <strong>Year:</strong> 2004</p>
@@ -93,7 +112,7 @@
 
     <!-- Movie 8 -->
     <article>
-      <img src="./books-images/moby-dick.jpg" alt="A Quiet Place">
+      <img src="./movie-images/a-quiet-place.jpg" alt="A Quiet Place">
       <div class="card-content">
         <h2>A Quiet Place</h2>
         <p><strong>Director:</strong> John Krasinski | <strong>Year:</strong> 2018</p>
@@ -105,7 +124,7 @@
 
     <!-- Movie 9 -->
     <article>
-      <img src="./books-images/the-lord-of-the-rings.jpg" alt="Guardians of the Galaxy">
+      <img src="./movie-images/guardian-of-galaxy.jpg" alt="Guardians of the Galaxy">
       <div class="card-content">
         <h2>Guardians of the Galaxy</h2>
         <p><strong>Director:</strong> James Gunn | <strong>Year:</strong> 2014</p>
@@ -116,7 +135,7 @@
 
     <!-- Movie 10 -->
     <article>
-      <img src="./books-images/unknown.jpg" alt="Her">
+      <img src="./movie-images/her.jpeg" alt="Her">
       <div class="card-content">
         <h2>Her</h2>
         <p><strong>Director:</strong> Spike Jonze | <strong>Year:</strong> 2013</p>
@@ -126,7 +145,9 @@
       </div>
     </article>
   </section>
-  <!-- Don't forget to connect the JavaScript file -->
+
+  <script src="script.js"></script>
+
 </body>
 
 </html>

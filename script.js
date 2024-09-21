@@ -1,14 +1,9 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
-
-const books = [
+const movies = [
   {
     title: 'Inception',
-    director: 'Christopher Nolan'
+    director: 'Christopher Nolan',
     year: 2010,
-    genre: 'Sci-Fi',
-    //rating: 4.2,//
+    genre: 'sci-fi',
     description:
       'A mind-bending exploration of dreams within dreams, directed by Christopher Nolan.',
     image: './movie-images/inception-movie.jpg'
@@ -17,68 +12,61 @@ const books = [
     title: 'Get Out',
     director: 'Jordan Peele',
     year: 2017,
-    genre: 'Horror',
-    //rating: 4.5,//
+    genre: 'horror',
     description:
       'A social horror film that blends suspense with sharp commentary on race and society.',
     image: './movie-images/get-out-movie.jpeg'
   },
   {
     title: 'Back to the Future',
-    author: 'Robert Zemeckis',
+    director: 'Robert Zemeckis',
     year: 1985,
-    genre: 'Sci-Fi',
-    //rating: 4.4,//
+    genre: 'sci-fi',
     description:
-      ' A classic time-travel adventure with humor, starring Michael J. Fox.',
+      'A classic time-travel adventure with humor, starring Michael J. Fox.',
     image: './movie-images/back-to-future.jpg'
   },
   {
     title: 'The Exorcist',
-    author: 'William Friedkin',
+    director: 'William Friedkin',
     year: 1973,
-    genre: 'Horror',
-    //rating: 4.25,//
+    genre: 'horror',
     description:
-      'One of the scariest films of all time, revolving around demonic possession..',
+      'One of the scariest films of all time, revolving around demonic possession.',
     image: './movie-images/the-exorcist.jpg'
   },
   {
     title: 'The Hangover',
-    author: 'Todd Phillips',
+    director: 'Todd Phillips',
     year: 2009,
-    genre: 'Comedy',
-    //rating: 4,//
+    genre: 'comedy',
     description:
       'A hilarious tale of a wild night gone wrong, featuring unforgettable misadventures.',
     image: './movie-images/the-hangover.jpeg'
   },
   {
     title: 'The Matrix',
-    author: 'Lana Wachowski, Lilly Wachowski',
+    director: 'Lana Wachowski, Lilly Wachowski',
     year: 1999,
-    genre: 'Sci-Fi',
-    //rating: 4.6,//
+    genre: 'sci-fi',
     description:
       'A groundbreaking sci-fi action film about reality, artificial intelligence, and rebellion.',
-    image: './movies-images/the-matrix.jpg'
+    image: './movie-images/matrix.jpg'
   },
   {
     title: "Shaun of the Dead",
-    author: 'Edgar Wright',
+    director: 'Edgar Wright',
     year: 2004,
-    genre: 'Horror',
-    rating: 4.7,
+    genre: 'horror',
     description:
-      'A man uneventful life takes a turn when he has to lead his friends and family through a zombie apocalypse.',
-    image: "./movie-images/shaun-of-the-dead'.jpg"
+      'A man\'s uneventful life takes a turn when he has to lead his friends and family through a zombie apocalypse.',
+    image: './movie-images/shaun-of-the-dead.jpg'
   },
   {
     title: 'A Quiet Place',
     director: 'John Krasinski',
     year: 2018,
-    genre: 'Horror, Sci-Fi, Thriller',
-    //rating: 4.1,
+    genre: 'horror, sci-fi',
     description:
       'A tense, almost silent thriller about surviving in a world where making noise can be deadly.',
     image: './movie-images/a-quiet-place.jpg'
@@ -87,22 +75,119 @@ const books = [
     title: 'Guardians of the Galaxy',
     director: 'James Gunn',
     year: 2014,
-    genre: 'Sci-Fi, Action, Comedy',
-    //rating: 4.55,
+    genre: 'sci-fi, comedy',
     description:
       'A fun-filled space adventure with a quirky band of misfits saving the universe.',
-    image: './movie-images/the-lord-of-the-rings.jpg'
+    image: './movie-images/guardian-of-galaxy.jpg'
   },
   {
     title: 'Her',
     director: 'Spike Jonze',
     year: 2013,
-    genre: 'Sci-Fi, Romance',
-    //rating: 4.3,
+    genre: 'sci-fi, romance',
     description:
       'A futuristic love story between a man and an artificial intelligence operating system.',
-    image: './books-images/unknown.jpg'
-  },
+    image: './movie-images/her.jpg'
+  }
+];
 
-]
+// Function to display movies (generic to handle sorting and filtering)
+function displayMovies(movieList) {
+  const moviesSection = document.getElementById('movies-section');
+  moviesSection.innerHTML = ''; // Clear previous movies
 
+  movieList.forEach(movie => {
+    const movieElement = `
+      <article>
+        <img src="${movie.image}" alt="${movie.title}">
+        <div class="card-content">
+          <h2>${movie.title}</h2>
+          <p><strong>Director:</strong> ${movie.director} | <strong>Year:</strong> ${movie.year}</p>
+          <p><strong>Genre:</strong> ${movie.genre}</p>
+          <p class="description">${movie.description}</p>
+        </div>
+      </article>`;
+    moviesSection.innerHTML += movieElement;
+  });
+}
+
+// Function to display all movies
+function displayAllMovies() {
+  displayMovies(movies);
+}
+
+// Function to filter and display movies based on genre
+function recommendMovieByGenre(genre) {
+  const filteredMovies = movies.filter(movie => {
+    const genres = movie.genre.split(',').map(g => g.trim().toLowerCase());
+    return genres.includes(genre.toLowerCase());
+  });
+
+  if (filteredMovies.length === 0) {
+    document.getElementById('movies-section').innerHTML = '<p>No movies found for the selected genre.</p>';
+  } else {
+    displayMovies(filteredMovies);
+  }
+}
+
+// Sorting functions
+function sortMoviesNewToOld() {
+  const sortedMovies = [...movies].sort((a, b) => b.year - a.year);
+  displayMovies(sortedMovies);
+}
+
+function sortMoviesOldToNew() {
+  const sortedMovies = [...movies].sort((a, b) => a.year - b.year);
+  displayMovies(sortedMovies);
+}
+
+// Variable to track the currently selected genre
+let currentGenre = '';
+
+// Add event listeners for the genre buttons
+document.getElementById('sci-fi').addEventListener('click', () => {
+  if (currentGenre === 'sci-fi') {
+    currentGenre = '';
+    displayAllMovies();
+  } else {
+    currentGenre = 'sci-fi';
+    recommendMovieByGenre(currentGenre);
+  }
+});
+
+document.getElementById('horror').addEventListener('click', () => {
+  if (currentGenre === 'horror') {
+    currentGenre = '';
+    displayAllMovies();
+  } else {
+    currentGenre = 'horror';
+    recommendMovieByGenre(currentGenre);
+  }
+});
+
+document.getElementById('comedy').addEventListener('click', () => {
+  if (currentGenre === 'comedy') {
+    currentGenre = '';
+    displayAllMovies();
+  } else {
+    currentGenre = 'comedy';
+    recommendMovieByGenre(currentGenre);
+  }
+});
+
+document.getElementById('romance').addEventListener('click', () => {
+  if (currentGenre === 'romance') {
+    currentGenre = '';
+    displayAllMovies();
+  } else {
+    currentGenre = 'romance';
+    recommendMovieByGenre(currentGenre);
+  }
+});
+
+// Add event listeners for the sorting buttons
+document.getElementById('sort-new-to-old').addEventListener('click', sortMoviesNewToOld);
+document.getElementById('sort-old-to-new').addEventListener('click', sortMoviesOldToNew);
+
+// Initially display all movies
+displayAllMovies();
