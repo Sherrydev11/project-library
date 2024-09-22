@@ -3,14 +3,11 @@ body {
     background-color: #EEEEEE;
 }
 
-
-
 article {
     border: solid 3px #929AAB;
     margin-top: 50px;
     padding: 20px;
     display: flex;
-
 }
 
 img {
@@ -31,16 +28,13 @@ h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    color: #393E46;
-
+    color: #white;
+    margin-bottom: 150%;
 }
 
 h2 {
     font-family: Arial, Helvetica, sans-serif;
-
 }
-
-
 
 button {
     cursor: pointer;
@@ -62,4 +56,31 @@ button:hover {
 
 .sort {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hero {
+    background-image: url(https://media.istockphoto.com/id/1522056968/photo/happy-girls-watching-a-surprising-movie-in-theatre.webp?a=1&b=1&s=612x612&w=0&k=20&c=vuqdVzunFwJDj13oWRmynZ45j-zDgZyM8BaemwUzxDE=);
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+@media (min-width:900px) {
+    h1 {
+        position: absolute;
+        top: 10px;
+        /* Adjusts the distance from the top of the page */
+        left: 10px;
+        /* Adjusts the distance from the left side of the page */
+        margin: 25px;
+        /* Removes default margin for more precise positioning */
+
+
+    }
+
 }

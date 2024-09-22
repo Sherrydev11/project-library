@@ -87,7 +87,7 @@ const movies = [
     genre: 'sci-fi, romance',
     description:
       'A futuristic love story between a man and an artificial intelligence operating system.',
-    image: './movie-images/her.jpg'
+    image: './movie-images/her.jpeg'
   }
 ];
 
