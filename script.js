@@ -144,46 +144,22 @@ function sortMoviesOldToNew() {
 // Variable to track the currently selected genre
 let currentGenre = '';
 
+// Function to handle genre button click
+function handleGenreClick(genre) {
+  if (currentGenre === genre) {
+    currentGenre = '';
+    displayAllMovies();
+  } else {
+    currentGenre = genre;
+    recommendMovieByGenre(currentGenre);
+  }
+}
+
 // Add event listeners for the genre buttons
-document.getElementById('sci-fi').addEventListener('click', () => {
-  if (currentGenre === 'sci-fi') {
-    currentGenre = '';
-    displayAllMovies();
-  } else {
-    currentGenre = 'sci-fi';
-    recommendMovieByGenre(currentGenre);
-  }
-});
-
-document.getElementById('horror').addEventListener('click', () => {
-  if (currentGenre === 'horror') {
-    currentGenre = '';
-    displayAllMovies();
-  } else {
-    currentGenre = 'horror';
-    recommendMovieByGenre(currentGenre);
-  }
-});
-
-document.getElementById('comedy').addEventListener('click', () => {
-  if (currentGenre === 'comedy') {
-    currentGenre = '';
-    displayAllMovies();
-  } else {
-    currentGenre = 'comedy';
-    recommendMovieByGenre(currentGenre);
-  }
-});
-
-document.getElementById('romance').addEventListener('click', () => {
-  if (currentGenre === 'romance') {
-    currentGenre = '';
-    displayAllMovies();
-  } else {
-    currentGenre = 'romance';
-    recommendMovieByGenre(currentGenre);
-  }
-});
+document.getElementById('sci-fi').addEventListener('click', () => handleGenreClick('sci-fi'));
+document.getElementById('horror').addEventListener('click', () => handleGenreClick('horror'));
+document.getElementById('comedy').addEventListener('click', () => handleGenreClick('comedy'));
+document.getElementById('romance').addEventListener('click', () => handleGenreClick('romance'));
 
 // Add event listeners for the sorting buttons
 document.getElementById('sort-new-to-old').addEventListener('click', sortMoviesNewToOld);
